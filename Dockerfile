@@ -6,7 +6,7 @@ USER root
 RUN set -ex \
     && apt-get update \
     && apt-get install -y \
-    mariadb
+    mariadb \
     --no-install-recommends \
     && rm -r /var/lib/apt/lists/*
 
