@@ -1,11 +1,14 @@
-FROM gregnuj/cyclops-lap:latest
+FROM gregnuj/cyclops-lap:stretch
 LABEL MAINTAINER="Greg Junge <gregnuj@gmail.com>"
 USER root
 
 # Install packages 
 RUN set -ex \
-&& apk add --no-cache \
+    && apt-get update \
+    && apt-get install -y \
     mariadb
+    --no-install-recommends \
+    && rm -r /var/lib/apt/lists/*
 
 # add files in rootfs
 ADD ./rootfs /
