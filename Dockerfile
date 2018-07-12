@@ -6,12 +6,13 @@ USER root
 RUN set -ex \
     && apt-get update \
     && apt-get install -y \
-    mariadb \
+    mariadb-server \
+    mariadb-client \
     --no-install-recommends \
     && rm -r /var/lib/apt/lists/*
 
 # add files in rootfs
 ADD ./rootfs /
 
-WORKDIR /var/www/html
+WORKDIR /var/www
 CMD ["/usr/bin/supervisord", "-n"]
