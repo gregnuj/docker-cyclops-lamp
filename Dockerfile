@@ -14,5 +14,5 @@ RUN set -ex \
 # add files in rootfs
 ADD ./rootfs /
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 CMD ["/usr/bin/supervisord", "-n"]
