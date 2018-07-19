@@ -1,4 +1,4 @@
-FROM gregnuj/cyclops-lap:latest
+FROM gregnuj/cyclops-lap:alpine3.8
 LABEL MAINTAINER="Greg Junge <gregnuj@gmail.com>"
 USER root
 
