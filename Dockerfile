@@ -18,4 +18,5 @@ RUN cd /var/www/html \
     && curl -sS https://www.dbninja.com/download/dbninja.tar.gz | tar xz
 
 WORKDIR /var/www/html
+EXPOSE 22 80 443 3360
 CMD ["/usr/bin/supervisord", "-n"]
