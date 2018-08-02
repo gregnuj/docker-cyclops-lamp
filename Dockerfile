@@ -10,5 +10,7 @@ RUN set -ex \
 # add files in rootfs
 ADD ./rootfs /
 
+VOLUME ["/var/lib/mysql"]
 WORKDIR /var/www/html
+EXPOSE 22 80 443 3360
 CMD ["/usr/bin/supervisord", "-n"]
