@@ -5,10 +5,12 @@ USER root
 # Install packages 
 RUN set -ex \
     && apk add --no-cache \
-    mariadb
+    mariadb \
+    mariadb-client
 
-# add files in rootfs
-ADD ./rootfs /
+# add files in rootfs 
+COPY --from=gregnuj/cyclops-mariadb:latest /etc/entrypoint.d/* /etc/entrypoint.d/
+COPY --from=gregnuj/cyclops-mariadb:latest /etc/supervisor.d/* /etc/supervisor.d/
 
 VOLUME ["/var/lib/mysql"]
 WORKDIR /var/www/html
