@@ -12,8 +12,8 @@ RUN set -ex \
     && rm -r /var/lib/apt/lists/*
 
 # add files in rootfs 
-COPY --from=gregnuj/cyclops-mariadb:latest /etc/entrypoint.d/* /etc/entrypoint.d/
-COPY --from=gregnuj/cyclops-mariadb:latest /etc/supervisor.d/* /etc/supervisor.d/
+COPY --from=gregnuj/cyclops-mariadb:stretch /etc/entrypoint.d/* /etc/entrypoint.d/
+COPY --from=gregnuj/cyclops-mariadb:stretch /etc/supervisor.d/* /etc/supervisor.d/
 
 VOLUME ["/var/lib/mysql"]
 WORKDIR /var/www/html
