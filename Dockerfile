@@ -11,8 +11,9 @@ RUN set -ex \
     --no-install-recommends \
     && rm -r /var/lib/apt/lists/*
 
-# add files in rootfs
-ADD ./rootfs /
+# add files in rootfs 
+COPY --from=gregnuj/cyclops-mariadb:latest /etc/entrypoint.d/* /etc/entrypoint.d/
+COPY --from=gregnuj/cyclops-mariadb:latest /etc/supervisor.d/* /etc/supervisor.d/
 
 VOLUME ["/var/lib/mysql"]
 WORKDIR /var/www/html
