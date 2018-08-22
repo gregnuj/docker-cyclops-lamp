@@ -8,9 +8,9 @@ RUN set -ex \
     mariadb \
     mariadb-client
 
-# add files in rootfs 
-COPY --from=gregnuj/cyclops-mariadb:latest /etc/supervisor.d/mariadb.ini /etc/supervisor.d/
-COPY --from=gregnuj/cyclops-mariadb:latest /etc/entrypoint.d/mariadb-setup.sh /etc/entrypoint.d/
+# add files in rootfs (Note: copying dir overwrites existing)
+COPY --from=gregnuj/cyclops-mariadb:latest /etc/supervisor.d/mariadb.ini /etc/supervisor.d/mariadb.ini
+COPY --from=gregnuj/cyclops-mariadb:latest /etc/entrypoint.d/mariadb-setup.sh /etc/entrypoint.d/mariadb-setup.sh
 
 VOLUME ["/var/lib/mysql"]
 WORKDIR /var/www/html
