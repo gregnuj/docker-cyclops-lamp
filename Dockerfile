@@ -17,5 +17,5 @@ COPY --from=gregnuj/cyclops-mariadb:stretch /etc/entrypoint.d/mariadb-setup.sh /
 
 VOLUME ["/var/lib/mysql"]
 WORKDIR /var/www/html
-EXPOSE 22 80 443 3360
+EXPOSE 22 80 443 3360 9001
 CMD ["/usr/bin/supervisord", "-n"]
