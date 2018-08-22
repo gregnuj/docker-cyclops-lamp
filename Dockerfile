@@ -11,9 +11,9 @@ RUN set -ex \
     --no-install-recommends \
     && rm -r /var/lib/apt/lists/*
 
-# add files in rootfs 
-COPY --from=gregnuj/cyclops-mariadb:stretch /etc/entrypoint.d/* /etc/entrypoint.d/
-COPY --from=gregnuj/cyclops-mariadb:stretch /etc/supervisor.d/* /etc/supervisor.d/
+# add files in rootfs (Note: copying dir overwrites existing)
+COPY --from=gregnuj/cyclops-mariadb:stretch /etc/supervisor.d/mariadb.ini /etc/supervisor.d/mariadb.ini
+COPY --from=gregnuj/cyclops-mariadb:stretch /etc/entrypoint.d/mariadb-setup.sh /etc/entrypoint.d/mariadb-setup.sh
 
 VOLUME ["/var/lib/mysql"]
 WORKDIR /var/www/html
