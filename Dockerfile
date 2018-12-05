@@ -16,5 +16,3 @@ COPY --from=gregnuj/cyclops-mariadb:edge /usr/local/bin/check_replication.sh /us
 
 EXPOSE 22 80 443 3360 9001
 VOLUME ["/var/lib/mysql"]
-WORKDIR "/var/www/html"
-CMD ["/usr/bin/supervisord", "-n"]
